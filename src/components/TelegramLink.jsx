@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { getTelegramLinkCode } from '../api';
-import { MIc, SPRING, EASE } from '../App';
+import { MIc, SPRING, EASE } from '../constants';
 
 const BOT_USERNAME = import.meta.env.VITE_TELEGRAM_BOT_USERNAME || 'MailmonBot'; // using MailmonBot as fallback placeholder
 
@@ -46,7 +46,7 @@ export default function TelegramLink({ linked, onUpdate }) {
           pollRef.current = null;
         }
       }, 10 * 60 * 1000);
-    } catch (err) {
+    } catch  {
       setError('Failed to generate link code');
     }
     setLoading(false);

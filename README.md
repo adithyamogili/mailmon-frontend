@@ -1,26 +1,50 @@
-# mailmon.
+# MailMon
 
-A minimalist inbox monitoring service designed for focus and clarity.
+> Monitor your Gmail inbox for important job-related updates and receive notifications through Telegram.
 
-## ── The Concept
+MailMon is a full-stack inbox monitoring application built to reduce the need for repeatedly checking email during an active job search.
 
-Mailmon is built for people who want to stay informed without being overwhelmed. It scans your Gmail for specific high-priority topics and pings you on Telegram at the exact cadence you choose. No more refreshing your inbox; let the bot watch it for you.
+Users connect their Gmail account through OAuth 2.0, configure a monitoring interval, and link a Telegram account. MailMon periodically scans incoming messages, identifies relevant job-related emails, classifies them, and sends useful updates through Telegram.
 
-## ── Features
+## Features
 
-- **Automated Scanning**: Connect your Gmail securely via OAuth 2.0.
-- **Telegram Pings**: Receive instant notifications via a lightweight Telegram bot.
-- **Flexible Cadence**: Choose your monitoring frequency, from every 30 minutes to a daily digest.
-- **Real-time Status**: A live hero section shows exactly when your next scan will happen.
-- **Privacy First**: Read-only access. We scan for keywords, not for data.
+- **Google Authentication** — Sign in securely using Google OAuth 2.0.
+- **Read-only Gmail Access** — Connect Gmail without granting permission to modify or send emails.
+- **Keyword Filtering** — Narrow down the inbox to relevant job-search messages before classification.
+- **AI Classification** — Categorize relevant messages such as interview invitations, assessments, offers, rejections, and next-round updates.
+- **Telegram Notifications** — Receive important updates directly through Telegram.
+- **Configurable Monitoring** — Choose a monitoring interval from 30 minutes to daily.
+- **Scheduled Background Jobs** — Monitoring continues automatically without requiring the dashboard to remain open.
+- **Live Monitoring Status** — The dashboard displays the monitoring state and upcoming scan.
+- **Duplicate Prevention** — Prevent repeated notifications for the same email event.
+- **Dark Mode** — Responsive dashboard with light and dark themes.
+- **Account Management** — Disconnect Gmail, unlink Telegram, or delete the MailMon account.
 
-## ── Design: Mono Ash
+## How It Works
 
-The interface follows the **Mono Ash** aesthetic—a high-contrast, editorial grayscale design that prioritizes typography and content over decorative noise.
-
-- **Geist Typography**: Modern, geometric, and highly readable.
-- **Spring Interactions**: Every button and transition is tuned with spring physics for a tactile feel.
-- **Quiet Interface**: A "no-distraction" design that only surfaces the information you need.
-
----
-*mailmon · watch your inbox on autopilot.*
+```text
+Google Login
+     │
+     ▼
+Connect Gmail ────────► Gmail API
+     │
+     ▼
+Configure monitoring interval
+     │
+     ▼
+Background scheduler
+     │
+     ▼
+Fetch recent Gmail messages
+     │
+     ▼
+Keyword filtering
+     │
+     ▼
+AI classification
+     │
+     ▼
+Relevant job update
+     │
+     ▼
+Telegram notification

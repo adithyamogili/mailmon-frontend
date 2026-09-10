@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { SPRING } from '../App';
+import { SPRING } from '../constants';
 
 /**
  * Custom Modal component with backdrop blur and animations.

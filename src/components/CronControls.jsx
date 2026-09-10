@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { updateCron } from '../api';
-import { MIc, SPRING, EASE } from '../App';
+import { MIc, SPRING, EASE } from '../constants';
 
 const INTERVALS = [
   { id: 30, label: "30 min", sub: "Frequent" },
@@ -17,8 +17,8 @@ export function CronHero({ enabled, nextRunAt, gmailConnected, telegramLinked, o
 
   useEffect(() => {
     if (!nextRunAt || !enabled) {
-      setTimeLeft('');
-      return;
+      const timer = setTimeout(() => setTimeLeft(''), 0);
+      return () => clearTimeout(timer);
     }
     let refreshed = false;
     const tick = () => {

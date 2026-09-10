@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { getGmailConnectURL, disconnectGmail } from '../api';
-import { MIc, SPRING, EASE } from '../App';
+import { MIc, SPRING, EASE } from '../constants';
 
 export default function GmailConnect({ connected, email, onUpdate }) {
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ export default function GmailConnect({ connected, email, onUpdate }) {
     try {
       const data = await getGmailConnectURL();
       window.location.href = data.url;
-    } catch (err) {
+    } catch  {
       setError('Failed to start Gmail connection');
       setLoading(false);
     }
@@ -24,7 +24,7 @@ export default function GmailConnect({ connected, email, onUpdate }) {
     try {
       await disconnectGmail();
       onUpdate();
-    } catch (err) {
+    } catch  {
       setError('Failed to disconnect Gmail');
     }
     setLoading(false);

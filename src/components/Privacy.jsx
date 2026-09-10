@@ -15,12 +15,12 @@ export default function Privacy() {
         <div className="space-y-8 text-[14px] leading-relaxed text-[var(--color-muted)]">
           <section>
             <h2 className="text-[16px] font-semibold text-[var(--color-heading)] mb-2">1. Information We Collect</h2>
-            <p>We collect your Google Email, Name, and Profile Picture via OAuth 2.0. We also store your Telegram Chat ID if you link your account.</p>
+            <p>We collect your Google email address, name, and profile picture through Google authentication. If you connect Telegram, we store your Telegram chat ID to deliver notifications.</p>
           </section>
 
           <section>
             <h2 className="text-[16px] font-semibold text-[var(--color-heading)] mb-2">2. Gmail Data</h2>
-            <p>We use read-only access to scan message headers for your specified keywords. We do not store or read the body of your emails.</p>
+            <p>We use read-only Gmail access to inspect message metadata and a limited preview of message content for job-related classification. Email content is processed transiently and is not stored as an email record in our application database.</p>
           </section>
 
           <section>

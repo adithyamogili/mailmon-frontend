@@ -28,6 +28,7 @@ dist-ssr
 .env.local
 .env.*
 .env.*.local
+!.env.example
 
 # vite
 *.vite.tsbuildinfo
